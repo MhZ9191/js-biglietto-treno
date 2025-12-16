@@ -22,8 +22,21 @@
 // }
 
 //INSERITI I DUE INPUT PER L'UTENTE, ARROTONDO PER ECCESSO O PER DIFETTO I KM
-const distance = Math.round(parseFloat(prompt("Quanti KM devi percorrere?")));
-const age = parseInt(prompt("Quanti anni hai?"));
+let distance = Math.round(parseFloat(prompt("Inserisci il numero di KM")));
+
+//INSERITO CICLO WHILE CHE SI ATTIVA FINCHE NON RICEVO UN NUMERO
+while (isNaN(distance)) {
+  alert("Error: input inserito non valido. Ritenta!");
+  distance = Math.round(parseFloat(prompt("Inserisci il numero di KM")));
+}
+
+let age = parseInt(prompt("Quanti anni hai?"));
+
+//INSERITO CICLO WHILE CHE SI ATTIVA FINCHE NON RICEVO UN NUMERO
+while (isNaN(age)) {
+  alert("Error: input inserito non valido. Ritenta!");
+  age = parseInt(prompt("Quanti anni hai?"));
+}
 
 //CALCOLO PREZZO BIGLIETTO
 let prezzoBiglietto = distance * 0.21; // prezzo senza sconto applicato
