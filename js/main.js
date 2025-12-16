@@ -38,8 +38,27 @@ while (isNaN(age)) {
   age = parseInt(prompt("Quanti anni hai?"));
 }
 
-//CALCOLO PREZZO BIGLIETTO
 let prezzoBiglietto = distance * 0.21; // prezzo senza sconto applicato
+
+//BONUS
+let nameTraveler = prompt(
+  "Come ti chiami? Oggi c'è una promo speciale =)"
+).toLowerCase();
+while (nameTraveler.length <= 0) {
+  alert("Devi inserire il tuo nome =(");
+  nameTraveler = prompt("Come ti chiami? Oggi c'è una promo speciale =)");
+}
+
+if (nameTraveler === "stefano") {
+  prezzoBiglietto = 0;
+  alert("Sei fortunato!! Oggi viaggi gratis!!");
+} else if (nameTraveler === "tiziano") {
+  alert("Mi dispiace");
+  prezzoBiglietto = distance * 0.5;
+}
+
+//END BONUS
+
 if (age < 18) {
   prezzoBiglietto = prezzoBiglietto - (20 * prezzoBiglietto) / 100; //sconto minorenni
 } else if (age > 65) {
