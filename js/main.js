@@ -9,7 +9,9 @@ Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio,
 
     il prezzo del biglietto è definito in base ai km (0.21 € al km)
 
-va applicato uno sconto del 20% per i minorenniva applicato uno sconto del 40% per gli over 65.L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). Questo richiederà un minimo di ricerca.
+va applicato uno sconto del 20% per i minorenniva applicato uno sconto del 40% per gli over 65.
+L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo).
+ Questo richiederà un minimo di ricerca.
 TIP:
 per controllare che la vostra logica sui prezzi funzioni correttamente, provate a verificare quanto segue:
 
@@ -20,6 +22,14 @@ per controllare che la vostra logica sui prezzi funzioni correttamente, provate 
 Buon lavoro!
 */
 
-//INSERITI I DUE INPUT PER L'UTENTE, ARROTONDO PER ECCESSO O PER DIFETTI I KM
+//INSERITI I DUE INPUT PER L'UTENTE, ARROTONDO PER ECCESSO O PER DIFETTO I KM
 const distance = Math.round(parseFloat(prompt("Quanti KM devi percorrere?")));
 const age = parseInt(prompt("Quanti anni hai?"));
+
+// CALCOLO PREZZO BIGLIETTO
+let prezzoBiglietto = distance * 0.21; // prezzo senza sconto applicato
+if (age < 18) {
+  prezzoBiglietto = prezzoBiglietto - (20 * prezzoBiglietto) / 100; //sconto minorenni
+} else if (age > 65) {
+  prezzoBiglietto = prezzoBiglietto - (40 * prezzoBiglietto) / 100; // sconto anziani
+}
