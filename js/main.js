@@ -33,3 +33,6 @@ if (age < 18) {
 } else if (age > 65) {
   prezzoBiglietto = prezzoBiglietto - (40 * prezzoBiglietto) / 100; // sconto anziani
 }
+
+outputBiglietto = prezzoBiglietto.toFixed(2);
+alert(`Il prezzo del biglietto è di ${outputBiglietto}€`);
